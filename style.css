@@ -1,0 +1,19 @@
+
+
+
+.tbl {
+	border-collapse: collapse;
+	background-color: #DEB887;
+	width: 40%;
+}
+
+.tbl th, td {
+	border: 1px solid black;
+}
+
+button {
+	background-color: #006400;
+	color: white;
+	font-size: 1em;
+	height: 2em;
+}
