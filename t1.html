@@ -18,18 +18,36 @@
 	<button id='btn2'>sort by age</button>
 
 	<script>
+		// Function constructor
+		class Person {
+			constructor(name, age, loc, hobby) {
+				this.name = name; // string
+				this.age = age; // numeric
+				this.city = loc;
+				this.hobby = hobby;
+			}
+
+			toString() {
+				let arr = new Array(this.name, this.age, this.city, this.hobby);
+				//return arr.join(',');
+				return this.name + " is " + this.age + " years old, who lives in " + this.city + " and loves " + this.hobby + "."; 
+			}
+		}
 			var p1 = new Person('Mary', 23, 'Denver', 'reading');
 			var p2 = new Person('Tom', 21, 'New York', 'movie');
 			var p3 = new Person('Peter', 25, 'Portland', 'biking');
 			var lst = new Array(p1, p2, p3);
+			console.log(lst);
 
 		window.onload = (event) => {
 			// construct an array
 			createTable(lst);
-			let v1 = document.createElement('div');
-			v1.innerHTML = p1.toString();
-			$("#app1").append(v1);
 
+			for (let obj of lst) {
+				let elm = document.createElement('div');
+				elm.innerHTML = obj.toString();
+				$("#app1").append(elm);
+			}
 		};
 
 		function createTable(data) {
@@ -72,17 +90,6 @@
 			createTable(lst);
 		});
 
-		// Function constructor
-		function Person(name, age, loc, hobby) {
-			this.name = name; // string
-			this.age = age; // numeric
-			this.city = loc;
-			this.hobby = hobby;
-			this.toString = function() {
-				let arr = new Array(this.name, this.age, this.city, this.hobby);
-				return arr.join(',');
-			}
-		}
 		
 		// sort by name: Mary, Peter, Tom
 		// sort by age: Tom, Mary, Peter
